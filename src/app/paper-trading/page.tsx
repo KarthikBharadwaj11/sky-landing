@@ -179,52 +179,6 @@ export default function PaperTradingPage() {
             </div>
           </div>
 
-          {/* Sample Portfolio Preview */}
-          <div className="max-w-4xl mx-auto mb-16">
-            <h2 className="text-3xl font-bold mb-8 text-center" style={{ color: 'var(--text-primary)' }}>Sample Paper Portfolio</h2>
-
-            <div className="card p-6">
-              <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-6">
-                <div className="glass-morphism p-4 rounded-xl">
-                  <p className="text-sm mb-1" style={{ color: 'var(--text-secondary)' }}>Paper Balance</p>
-                  <p className="text-2xl font-bold" style={{ color: 'var(--text-primary)' }}>$97,245.50</p>
-                </div>
-                <div className="glass-morphism p-4 rounded-xl">
-                  <p className="text-sm mb-1" style={{ color: 'var(--text-secondary)' }}>Portfolio Value</p>
-                  <p className="text-2xl font-bold" style={{ color: 'var(--text-primary)' }}>$4,892.15</p>
-                </div>
-                <div className="glass-morphism p-4 rounded-xl">
-                  <p className="text-sm mb-1" style={{ color: 'var(--text-secondary)' }}>Total Assets</p>
-                  <p className="text-2xl font-bold" style={{ color: 'var(--text-primary)' }}>$102,137.65</p>
-                </div>
-                <div className="glass-morphism p-4 rounded-xl">
-                  <p className="text-sm mb-1" style={{ color: 'var(--text-secondary)' }}>Total Return</p>
-                  <p className="text-2xl font-bold text-green-500">+$2,137.65</p>
-                </div>
-              </div>
-
-              <div className="border-t pt-6" style={{ borderColor: 'var(--glass-border-color)' }}>
-                <h3 className="font-bold mb-4" style={{ color: 'var(--text-primary)' }}>Sample Holdings</h3>
-                <div className="space-y-3">
-                  <div className="flex items-center justify-between p-3 glass-morphism rounded-lg">
-                    <div className="flex items-center gap-3">
-                      <span className="font-bold" style={{ color: 'var(--text-primary)' }}>AAPL</span>
-                      <span className="text-sm" style={{ color: 'var(--text-secondary)' }}>10 shares</span>
-                    </div>
-                    <span className="text-green-500 font-semibold">+$54.30</span>
-                  </div>
-                  <div className="flex items-center justify-between p-3 glass-morphism rounded-lg">
-                    <div className="flex items-center gap-3">
-                      <span className="font-bold" style={{ color: 'var(--text-primary)' }}>MSFT</span>
-                      <span className="text-sm" style={{ color: 'var(--text-secondary)' }}>5 shares</span>
-                    </div>
-                    <span className="text-green-500 font-semibold">+$94.25</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
           {/* Call-to-action */}
           <div className="text-center max-w-4xl mx-auto">
             <div className="card p-8">

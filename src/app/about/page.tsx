@@ -11,8 +11,6 @@ import {
   Zap,
   Eye,
   CheckCircle,
-  Linkedin,
-  Twitter,
 } from 'lucide-react';
 
 export default function AboutPage() {
@@ -43,37 +41,6 @@ export default function AboutPage() {
       icon: <Eye className="w-12 h-12" />,
       title: "Transparency",
       description: "Complete transparency in pricing, performance, and operations. No hidden fees, no surprises - just honest trading."
-    }
-  ];
-
-  const team = [
-    {
-      name: "Team Member",
-      role: "CEO & Co-Founder",
-      description: "Leadership experience in fintech and trading platforms.",
-      image: "👩‍💼",
-      social: { linkedin: "#", twitter: "#" }
-    },
-    {
-      name: "Team Member",
-      role: "CTO & Co-Founder",
-      description: "Technical expertise in distributed systems and trading infrastructure.",
-      image: "👨‍💻",
-      social: { linkedin: "#", twitter: "#" }
-    },
-    {
-      name: "Team Member",
-      role: "Head of AI & Analytics",
-      description: "Advanced degree and research experience in machine learning and quantitative analysis.",
-      image: "👩‍🔬",
-      social: { linkedin: "#", twitter: "#" }
-    },
-    {
-      name: "Team Member",
-      role: "Head of Product",
-      description: "Product development experience in financial technology and trading platforms.",
-      image: "👨‍💼",
-      social: { linkedin: "#", twitter: "#" }
     }
   ];
 
@@ -184,47 +151,6 @@ export default function AboutPage() {
                     <p style={{ color: 'var(--text-secondary)' }}>
                       {value.description}
                     </p>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Team Section */}
-      <section className="py-16">
-        <div className="container mx-auto px-4">
-          <div className="max-w-6xl mx-auto">
-            <div className="text-center mb-12">
-              <h2 className="text-4xl font-bold text-gradient mb-4">Meet Our Team</h2>
-              <p className="text-lg" style={{ color: 'var(--text-secondary)' }}>
-                Industry experts passionate about democratizing trading
-              </p>
-            </div>
-
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-              {team.map((member, index) => (
-                <div key={index} className="card hover:scale-105 transition-all duration-300">
-                  <div className="card-body text-center p-6">
-                    <div className="text-6xl mb-4">{member.image}</div>
-                    <h3 className="text-xl font-bold mb-1" style={{ color: 'var(--text-primary)' }}>
-                      {member.name}
-                    </h3>
-                    <p className="text-sm font-semibold mb-3" style={{ color: 'var(--text-accent)' }}>
-                      {member.role}
-                    </p>
-                    <p className="text-sm mb-4" style={{ color: 'var(--text-secondary)' }}>
-                      {member.description}
-                    </p>
-                    <div className="flex justify-center gap-3">
-                      <a href={member.social.linkedin} className="p-2 glass-morphism rounded-lg hover:bg-white/10 transition-colors">
-                        <Linkedin className="w-4 h-4" style={{ color: 'var(--text-accent)' }} />
-                      </a>
-                      <a href={member.social.twitter} className="p-2 glass-morphism rounded-lg hover:bg-white/10 transition-colors">
-                        <Twitter className="w-4 h-4" style={{ color: 'var(--text-accent)' }} />
-                      </a>
-                    </div>
                   </div>
                 </div>
               ))}
