@@ -284,49 +284,6 @@ export default function SupportPage() {
         </div>
       </section>
 
-      {/* Contact Section */}
-      <section className="py-16">
-        <div className="container mx-auto px-4">
-          <div className="max-w-4xl mx-auto">
-            <div className="card">
-              <div className="card-body text-center p-8">
-                <h3 className="text-3xl font-bold text-gradient mb-4">
-                  Still Need Help?
-                </h3>
-                <p className="text-lg mb-8" style={{ color: 'var(--text-secondary)' }}>
-                  Our support team is here to help you with any questions or issues
-                </p>
-
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
-                  <div className="glass-morphism p-4 rounded-lg">
-                    <Mail className="w-8 h-8 mx-auto mb-3" style={{ color: 'var(--text-accent)' }} />
-                    <p className="font-semibold" style={{ color: 'var(--text-primary)' }}>Email</p>
-                    <p className="text-sm" style={{ color: 'var(--text-secondary)' }}>support@sky-trading.com</p>
-                  </div>
-                  <div className="glass-morphism p-4 rounded-lg">
-                    <Phone className="w-8 h-8 mx-auto mb-3" style={{ color: 'var(--text-accent)' }} />
-                    <p className="font-semibold" style={{ color: 'var(--text-primary)' }}>Phone</p>
-                    <p className="text-sm" style={{ color: 'var(--text-secondary)' }}>1-800-SKY-HELP</p>
-                  </div>
-                  <div className="glass-morphism p-4 rounded-lg">
-                    <Clock className="w-8 h-8 mx-auto mb-3" style={{ color: 'var(--text-accent)' }} />
-                    <p className="font-semibold" style={{ color: 'var(--text-primary)' }}>Hours</p>
-                    <p className="text-sm" style={{ color: 'var(--text-secondary)' }}>24/7 Support</p>
-                  </div>
-                </div>
-
-                <button className="btn-primary px-8 py-3 text-lg hover:scale-105 transition-all duration-300">
-                  <span className="flex items-center justify-center gap-2">
-                    <MessageCircle className="w-5 h-5" />
-                    Start Live Chat
-                  </span>
-                </button>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
       {/* Resources Section */}
       <section className="py-16 border-t" style={{ borderColor: 'var(--glass-border)' }}>
         <div className="container mx-auto px-4">
