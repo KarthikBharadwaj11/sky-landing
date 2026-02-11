@@ -214,6 +214,17 @@ body {
   border: 1px solid color-mix(in srgb, var(--primary-blue) 30%, transparent);
 }
 
+.nav-link-active {
+  color: var(--text-primary);
+  background: color-mix(in srgb, var(--glass-bg) 70%, var(--primary-blue) 30%);
+  border: 1px solid color-mix(in srgb, var(--primary-blue) 40%, transparent);
+  box-shadow: 0 0 12px color-mix(in srgb, var(--primary-blue) 20%, transparent);
+}
+
+.nav-link-active::before {
+  left: 0;
+}
+
 /* Animations */
 @keyframes gradient-shift {
   0% { background-position: 0% 50%; }
@@ -289,13 +300,283 @@ h3 {
 /* Trading background */
 .trading-background {
   background-color: #020617;
-  background-image:
-    linear-gradient(rgba(2, 6, 23, 0.5), rgba(2, 6, 23, 0.5)),
-    url('/background.png');
-  background-size: cover, cover;
-  background-position: center, center;
-  background-repeat: no-repeat, no-repeat;
-  background-attachment: fixed, fixed;
   position: relative;
   overflow: hidden;
+}
+
+.trading-background::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-image: url('/background.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  opacity: 0.3;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.trading-background::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  opacity: 0.3;
+  background:
+    radial-gradient(600px circle at 20% 30%, rgba(59, 130, 246, 0.15), transparent 60%),
+    radial-gradient(500px circle at 80% 70%, rgba(139, 92, 246, 0.12), transparent 60%),
+    radial-gradient(400px circle at 50% 50%, rgba(168, 85, 247, 0.08), transparent 60%);
+  animation: mesh-drift 20s ease-in-out infinite;
+}
+
+@keyframes mesh-drift {
+  0%, 100% {
+    background:
+      radial-gradient(600px circle at 20% 30%, rgba(59, 130, 246, 0.15), transparent 60%),
+      radial-gradient(500px circle at 80% 70%, rgba(139, 92, 246, 0.12), transparent 60%),
+      radial-gradient(400px circle at 50% 50%, rgba(168, 85, 247, 0.08), transparent 60%);
+  }
+  33% {
+    background:
+      radial-gradient(600px circle at 40% 60%, rgba(59, 130, 246, 0.15), transparent 60%),
+      radial-gradient(500px circle at 60% 20%, rgba(139, 92, 246, 0.12), transparent 60%),
+      radial-gradient(400px circle at 30% 80%, rgba(168, 85, 247, 0.08), transparent 60%);
+  }
+  66% {
+    background:
+      radial-gradient(600px circle at 70% 40%, rgba(59, 130, 246, 0.15), transparent 60%),
+      radial-gradient(500px circle at 30% 50%, rgba(139, 92, 246, 0.12), transparent 60%),
+      radial-gradient(400px circle at 80% 20%, rgba(168, 85, 247, 0.08), transparent 60%);
+  }
+}
+
+.trading-background > * {
+  position: relative;
+  z-index: 1;
+}
+
+/* ===== Scroll Reveal Animation System ===== */
+[data-animate] {
+  opacity: 0;
+  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+[data-animate="fade-up"] {
+  transform: translateY(30px);
+}
+
+[data-animate="fade-in"] {
+  transform: none;
+}
+
+[data-animate="fade-left"] {
+  transform: translateX(-30px);
+}
+
+[data-animate="fade-right"] {
+  transform: translateX(30px);
+}
+
+[data-animate="scale-in"] {
+  transform: scale(0.95);
+}
+
+[data-animate].visible {
+  opacity: 1;
+  transform: none;
+}
+
+/* Stagger delays for grid children */
+[data-stagger] > *:nth-child(1) { transition-delay: 0ms; }
+[data-stagger] > *:nth-child(2) { transition-delay: 100ms; }
+[data-stagger] > *:nth-child(3) { transition-delay: 200ms; }
+[data-stagger] > *:nth-child(4) { transition-delay: 300ms; }
+[data-stagger] > *:nth-child(5) { transition-delay: 400ms; }
+[data-stagger] > *:nth-child(6) { transition-delay: 500ms; }
+[data-stagger] > *:nth-child(7) { transition-delay: 600ms; }
+[data-stagger] > *:nth-child(8) { transition-delay: 700ms; }
+[data-stagger] > *:nth-child(9) { transition-delay: 800ms; }
+
+/* ===== Floating Particles ===== */
+.floating-particles {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.floating-particles span {
+  position: absolute;
+  width: 3px;
+  height: 3px;
+  border-radius: 50%;
+  background: rgba(96, 165, 250, 0.5);
+  box-shadow: 0 0 6px rgba(96, 165, 250, 0.4);
+  animation: particle-float linear infinite;
+}
+
+.floating-particles span:nth-child(1) {
+  left: 10%;
+  animation-duration: 14s;
+  animation-delay: 0s;
+}
+
+.floating-particles span:nth-child(2) {
+  left: 25%;
+  width: 2px;
+  height: 2px;
+  background: rgba(139, 92, 246, 0.5);
+  box-shadow: 0 0 6px rgba(139, 92, 246, 0.4);
+  animation-duration: 18s;
+  animation-delay: -3s;
+}
+
+.floating-particles span:nth-child(3) {
+  left: 45%;
+  animation-duration: 16s;
+  animation-delay: -6s;
+}
+
+.floating-particles span:nth-child(4) {
+  left: 65%;
+  width: 2px;
+  height: 2px;
+  background: rgba(168, 85, 247, 0.4);
+  box-shadow: 0 0 6px rgba(168, 85, 247, 0.3);
+  animation-duration: 20s;
+  animation-delay: -9s;
+}
+
+.floating-particles span:nth-child(5) {
+  left: 80%;
+  animation-duration: 15s;
+  animation-delay: -4s;
+}
+
+.floating-particles span:nth-child(6) {
+  left: 92%;
+  width: 2px;
+  height: 2px;
+  background: rgba(139, 92, 246, 0.4);
+  box-shadow: 0 0 6px rgba(139, 92, 246, 0.3);
+  animation-duration: 17s;
+  animation-delay: -7s;
+}
+
+@keyframes particle-float {
+  0% {
+    transform: translateY(100vh) translateX(0);
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  90% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-10vh) translateX(30px);
+    opacity: 0;
+  }
+}
+
+
+/* ===== FAQ Accordion Animation ===== */
+.faq-answer {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.faq-answer > div {
+  overflow: hidden;
+}
+
+.faq-answer.open {
+  grid-template-rows: 1fr;
+}
+
+/* ===== Mobile Menu Animation ===== */
+.mobile-menu {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.mobile-menu > div {
+  overflow: hidden;
+}
+
+.mobile-menu.open {
+  grid-template-rows: 1fr;
+}
+
+/* ===== Navbar Scroll State ===== */
+.navbar-glass {
+  background: var(--glass-bg);
+  backdrop-filter: blur(20px);
+  border: 1px solid var(--glass-border-color);
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.navbar-glass.scrolled {
+  background: rgba(15, 23, 42, 0.95);
+  backdrop-filter: blur(30px);
+  box-shadow:
+    0 8px 32px rgba(0, 0, 0, 0.4),
+    0 0 20px color-mix(in srgb, var(--primary-blue) 10%, transparent);
+  border-color: rgba(148, 163, 184, 0.15);
+}
+
+/* ===== Text Shimmer on Gradient Headings ===== */
+@keyframes text-shimmer {
+  0% {
+    background-position: -200% center;
+  }
+  100% {
+    background-position: 200% center;
+  }
+}
+
+.text-gradient {
+  background-size: 200% auto;
+  animation: text-shimmer 8s linear infinite;
+}
+
+/* Ensure images inside gradient headings remain visible */
+h1 img,
+.text-gradient img {
+  -webkit-text-fill-color: initial;
+  opacity: 1;
+}
+
+/* ===== Reduced Motion ===== */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+
+  [data-animate] {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+
+  .floating-particles {
+    display: none;
+  }
+
+  .trading-background::after {
+    animation: none;
+  }
+
+  .faq-answer,
+  .mobile-menu {
+    transition: none;
+  }
 }

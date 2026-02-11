@@ -12,8 +12,11 @@ import {
   Eye,
   CheckCircle,
 } from 'lucide-react';
+import { useScrollReveal } from '@/hooks/useScrollAnimations';
 
 export default function AboutPage() {
+  useScrollReveal();
+
   const stats = [
     { icon: <Users className="w-8 h-8" />, value: "X", label: "Active Traders" },
     { icon: <Globe className="w-8 h-8" />, value: "X", label: "Volume Traded" },
@@ -46,6 +49,10 @@ export default function AboutPage() {
 
   return (
     <div className="min-h-screen trading-background">
+      {/* Floating Particles */}
+      <div className="floating-particles">
+        <span /><span /><span /><span /><span /><span />
+      </div>
 
       {/* Hero Section */}
       <section className="pt-48 pb-16">
@@ -60,9 +67,9 @@ export default function AboutPage() {
               backed by cutting-edge technology and unwavering commitment to our users.
             </p>
 
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+            <div data-stagger className="grid grid-cols-2 md:grid-cols-4 gap-6">
               {stats.map((stat, index) => (
-                <div key={index} className="glass-morphism p-6 rounded-xl text-center hover:scale-105 transition-all duration-300">
+                <div key={index} data-animate="fade-up" className="glass-morphism p-6 rounded-xl text-center hover:scale-105 transition-all duration-300">
                   <div className="text-3xl font-bold text-gradient mb-1">{stat.value}</div>
                   <div className="text-sm" style={{ color: 'var(--text-secondary)' }}>{stat.label}</div>
                 </div>
@@ -77,7 +84,7 @@ export default function AboutPage() {
         <div className="container mx-auto px-4">
           <div className="max-w-6xl mx-auto">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-              <div>
+              <div data-animate="fade-left">
                 <h2 className="text-4xl md:text-5xl font-bold text-gradient mb-6">
                   Our Mission
                 </h2>
@@ -109,7 +116,7 @@ export default function AboutPage() {
                 </div>
               </div>
 
-              <div className="card">
+              <div data-animate="fade-right" className="card">
                 <div className="card-body p-8">
                   <div className="text-center mb-6">
                     <Eye className="w-16 h-16 mx-auto mb-4" style={{ color: 'var(--text-accent)' }} />
@@ -132,15 +139,15 @@ export default function AboutPage() {
         <div className="container mx-auto px-4">
           <div className="max-w-6xl mx-auto">
             <div className="text-center mb-12">
-              <h2 className="text-4xl font-bold text-gradient mb-4">Our Values</h2>
-              <p className="text-lg" style={{ color: 'var(--text-secondary)' }}>
+              <h2 data-animate="fade-up" className="text-4xl font-bold text-gradient mb-4">Our Values</h2>
+              <p data-animate="fade-up" className="text-lg" style={{ color: 'var(--text-secondary)' }}>
                 The principles that guide everything we do
               </p>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            <div data-stagger className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
               {values.map((value, index) => (
-                <div key={index} className="card hover:scale-105 transition-all duration-300">
+                <div key={index} data-animate="fade-up" className="card hover:scale-105 transition-all duration-300">
                   <div className="card-body text-center p-6">
                     <div className="flex justify-center mb-4" style={{ color: 'var(--text-accent)' }}>
                       {value.icon}
@@ -163,7 +170,7 @@ export default function AboutPage() {
       <section className="py-16">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto">
-            <div className="card">
+            <div data-animate="scale-in" className="card">
               <div className="card-body text-center p-8">
                 <h3 className="text-3xl font-bold text-gradient mb-4">
                   Ready to Join the Sky Community?

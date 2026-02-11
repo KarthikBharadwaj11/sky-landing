@@ -18,11 +18,13 @@ import {
   HelpCircle,
   FileText
 } from 'lucide-react';
+import { useScrollReveal } from '@/hooks/useScrollAnimations';
 
 export default function SupportPage() {
   const [searchQuery, setSearchQuery] = useState('');
   const [selectedCategory, setSelectedCategory] = useState('all');
   const [openFaq, setOpenFaq] = useState<number | null>(null);
+  useScrollReveal();
 
   const supportOptions = [
     {
@@ -127,6 +129,10 @@ export default function SupportPage() {
 
   return (
     <div className="min-h-screen trading-background">
+      {/* Floating Particles */}
+      <div className="floating-particles">
+        <span /><span /><span /><span /><span /><span />
+      </div>
 
       {/* Hero Section */}
       <section className="pt-48 pb-16">
@@ -165,16 +171,17 @@ export default function SupportPage() {
         <div className="container mx-auto px-4">
           <div className="max-w-6xl mx-auto">
             <div className="text-center mb-12">
-              <h2 className="text-4xl font-bold text-gradient mb-4">Get Instant Support</h2>
-              <p className="text-lg" style={{ color: 'var(--text-secondary)' }}>
+              <h2 data-animate="fade-up" className="text-4xl font-bold text-gradient mb-4">Get Instant Support</h2>
+              <p data-animate="fade-up" className="text-lg" style={{ color: 'var(--text-secondary)' }}>
                 Choose the best way to reach our support team
               </p>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            <div data-stagger className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
               {supportOptions.map((option, index) => (
                 <div
                   key={index}
+                  data-animate="fade-up"
                   className={`card hover:scale-105 transition-all duration-300 cursor-pointer ${
                     option.highlight ? 'border-2' : ''
                   }`}
@@ -215,14 +222,14 @@ export default function SupportPage() {
         <div className="container mx-auto px-4">
           <div className="max-w-6xl mx-auto">
             <div className="text-center mb-12">
-              <h2 className="text-4xl font-bold text-gradient mb-4">Frequently Asked Questions</h2>
-              <p className="text-lg" style={{ color: 'var(--text-secondary)' }}>
+              <h2 data-animate="fade-up" className="text-4xl font-bold text-gradient mb-4">Frequently Asked Questions</h2>
+              <p data-animate="fade-up" className="text-lg" style={{ color: 'var(--text-secondary)' }}>
                 Find quick answers to common questions
               </p>
             </div>
 
             {/* Category Filter */}
-            <div className="flex flex-wrap justify-center gap-3 mb-8">
+            <div data-animate="fade-up" className="flex flex-wrap justify-center gap-3 mb-8">
               {categories.map((category) => (
                 <button
                   key={category.id}
@@ -242,7 +249,7 @@ export default function SupportPage() {
             {/* FAQ Items */}
             <div className="space-y-4 max-w-4xl mx-auto">
               {searchedFaqs.map((faq, index) => (
-                <div key={index} className="glass-morphism rounded-xl overflow-hidden">
+                <div key={index} data-animate="fade-up" className="glass-morphism rounded-xl overflow-hidden">
                   <button
                     onClick={() => toggleFaq(index)}
                     className="w-full p-6 text-left flex items-center justify-between hover:bg-white/5 transition-colors"
@@ -251,17 +258,19 @@ export default function SupportPage() {
                       {faq.question}
                     </span>
                     <ChevronDown
-                      className={`w-5 h-5 transition-transform ${openFaq === index ? 'rotate-180' : ''}`}
+                      className={`w-5 h-5 transition-transform duration-300 ${openFaq === index ? 'rotate-180' : ''}`}
                       style={{ color: 'var(--text-accent)' }}
                     />
                   </button>
-                  {openFaq === index && (
-                    <div className="px-6 pb-6" style={{ color: 'var(--text-secondary)' }}>
-                      <div className="pt-4 border-t border-white/10">
-                        {faq.answer}
+                  <div className={`faq-answer ${openFaq === index ? 'open' : ''}`}>
+                    <div>
+                      <div className="px-6 pb-6" style={{ color: 'var(--text-secondary)' }}>
+                        <div className="pt-4 border-t border-white/10">
+                          {faq.answer}
+                        </div>
                       </div>
                     </div>
-                  )}
+                  </div>
                 </div>
               ))}
 
@@ -289,14 +298,14 @@ export default function SupportPage() {
         <div className="container mx-auto px-4">
           <div className="max-w-6xl mx-auto">
             <div className="text-center mb-12">
-              <h2 className="text-4xl font-bold text-gradient mb-4">Additional Resources</h2>
-              <p className="text-lg" style={{ color: 'var(--text-secondary)' }}>
+              <h2 data-animate="fade-up" className="text-4xl font-bold text-gradient mb-4">Additional Resources</h2>
+              <p data-animate="fade-up" className="text-lg" style={{ color: 'var(--text-secondary)' }}>
                 Explore more ways to get help and learn
               </p>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-              <div className="card hover:scale-105 transition-all duration-300">
+            <div data-stagger className="grid grid-cols-1 md:grid-cols-3 gap-8">
+              <div data-animate="fade-up" className="card hover:scale-105 transition-all duration-300">
                 <div className="card-body text-center p-6">
                   <BookOpen className="w-12 h-12 mx-auto mb-4" style={{ color: 'var(--text-accent)' }} />
                   <h3 className="text-xl font-bold mb-3" style={{ color: 'var(--text-primary)' }}>
@@ -312,7 +321,7 @@ export default function SupportPage() {
                 </div>
               </div>
 
-              <div className="card hover:scale-105 transition-all duration-300">
+              <div data-animate="fade-up" className="card hover:scale-105 transition-all duration-300">
                 <div className="card-body text-center p-6">
                   <Users className="w-12 h-12 mx-auto mb-4" style={{ color: 'var(--text-accent)' }} />
                   <h3 className="text-xl font-bold mb-3" style={{ color: 'var(--text-primary)' }}>
@@ -328,7 +337,7 @@ export default function SupportPage() {
                 </div>
               </div>
 
-              <div className="card hover:scale-105 transition-all duration-300">
+              <div data-animate="fade-up" className="card hover:scale-105 transition-all duration-300">
                 <div className="card-body text-center p-6">
                   <Video className="w-12 h-12 mx-auto mb-4" style={{ color: 'var(--text-accent)' }} />
                   <h3 className="text-xl font-bold mb-3" style={{ color: 'var(--text-primary)' }}>

@@ -10,8 +10,11 @@ import {
   Brain,
   Clock,
 } from 'lucide-react';
+import { useScrollReveal } from '@/hooks/useScrollAnimations';
 
 export default function CopyTradingPage() {
+  useScrollReveal();
+
   const features = [
     {
       icon: <Copy className="w-8 h-8" />,
@@ -47,6 +50,11 @@ export default function CopyTradingPage() {
 
   return (
     <div className="min-h-screen trading-background">
+      {/* Floating Particles */}
+      <div className="floating-particles">
+        <span /><span /><span /><span /><span /><span />
+      </div>
+
       <section className="pt-48 pb-16">
         <div className="container mx-auto px-4">
           <div className="max-w-6xl mx-auto text-center mb-16">
@@ -58,20 +66,20 @@ export default function CopyTradingPage() {
             </p>
           </div>
 
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mb-16 max-w-5xl mx-auto">
-            <div className="text-center">
+          <div data-stagger className="grid grid-cols-2 md:grid-cols-4 gap-8 mb-16 max-w-5xl mx-auto">
+            <div data-animate="fade-up" className="text-center">
               <div className="text-4xl md:text-4xl font-black text-gradient mb-2">X</div>
               <div className="text-sm font-medium" style={{ color: 'var(--text-tertiary)' }}>Active Traders</div>
             </div>
-            <div className="text-center">
+            <div data-animate="fade-up" className="text-center">
               <div className="text-4xl md:text-4xl font-black text-gradient mb-2">X</div>
               <div className="text-sm font-medium" style={{ color: 'var(--text-tertiary)' }}>Expert Traders</div>
             </div>
-            <div className="text-center">
+            <div data-animate="fade-up" className="text-center">
               <div className="text-4xl md:text-4xl font-black text-gradient mb-2">X</div>
               <div className="text-sm font-medium" style={{ color: 'var(--text-tertiary)' }}>Assets Under Management</div>
             </div>
-            <div className="text-center">
+            <div data-animate="fade-up" className="text-center">
               <div className="text-4xl md:text-4xl font-black text-gradient mb-2">X</div>
               <div className="text-sm font-medium" style={{ color: 'var(--text-tertiary)' }}>Positive Returns</div>
             </div>
@@ -80,15 +88,15 @@ export default function CopyTradingPage() {
           {/* Features */}
           <div className="max-w-6xl mx-auto mb-16">
             <div className="text-center mb-12">
-              <h2 className="text-4xl font-bold text-gradient mb-4">Why Copy Trading?</h2>
-              <p className="text-lg" style={{ color: 'var(--text-secondary)' }}>
+              <h2 data-animate="fade-up" className="text-4xl font-bold text-gradient mb-4">Why Copy Trading?</h2>
+              <p data-animate="fade-up" className="text-lg" style={{ color: 'var(--text-secondary)' }}>
                 Powerful features to help you succeed
               </p>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div data-stagger className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
               {features.map((feature, index) => (
-                <div key={index} className="card hover:scale-105 transition-all duration-300">
+                <div key={index} data-animate="fade-up" className="card hover:scale-105 transition-all duration-300">
                   <div className="card-body text-center p-6">
                     <div className="flex justify-center mb-4" style={{ color: 'var(--text-accent)' }}>
                       {feature.icon}
@@ -107,7 +115,7 @@ export default function CopyTradingPage() {
 
           {/* How It Works */}
           <div className="max-w-4xl mx-auto mb-16">
-            <div className="card p-8">
+            <div data-animate="scale-in" className="card p-8">
               <h2 className="text-3xl font-bold mb-4 text-center" style={{ color: 'var(--text-primary)' }}>How Copy Trading Works</h2>
               <p className="text-lg text-center mb-8" style={{ color: 'var(--text-secondary)' }}>
                 Start copying expert traders in four simple steps
@@ -159,13 +167,13 @@ export default function CopyTradingPage() {
 
           {/* Copy Trading Modes */}
           <div className="max-w-4xl mx-auto mb-16">
-            <h2 className="text-3xl font-bold mb-4 text-center" style={{ color: 'var(--text-primary)' }}>Choose Your Copy Trading Mode</h2>
-            <p className="text-lg text-center mb-8" style={{ color: 'var(--text-secondary)' }}>
+            <h2 data-animate="fade-up" className="text-3xl font-bold mb-4 text-center" style={{ color: 'var(--text-primary)' }}>Choose Your Copy Trading Mode</h2>
+            <p data-animate="fade-up" className="text-lg text-center mb-8" style={{ color: 'var(--text-secondary)' }}>
               Two ways to copy trades - pick what works best for you
             </p>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              <div className="card p-6">
+            <div data-stagger className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div data-animate="fade-up" className="card p-6">
                 <h3 className="text-xl font-bold mb-3" style={{ color: 'var(--text-primary)' }}>Automatic Copying</h3>
                 <p className="mb-4" style={{ color: 'var(--text-secondary)' }}>
                   Trades are executed instantly when your chosen expert makes a move. Completely hands-free.
@@ -186,7 +194,7 @@ export default function CopyTradingPage() {
                 </ul>
               </div>
 
-              <div className="card p-6">
+              <div data-animate="fade-up" className="card p-6">
                 <h3 className="text-xl font-bold mb-3" style={{ color: 'var(--text-primary)' }}>Manual Approval</h3>
                 <p className="mb-4" style={{ color: 'var(--text-secondary)' }}>
                   Review each trade before it's executed. You maintain full control over every decision.
@@ -211,7 +219,7 @@ export default function CopyTradingPage() {
 
           {/* CTA */}
           <div className="text-center max-w-4xl mx-auto">
-            <div className="card p-8">
+            <div data-animate="scale-in" className="card p-8">
               <h2 className="text-3xl font-bold mb-4 text-gradient">Ready to Start Copy Trading?</h2>
               <p className="text-lg mb-8" style={{ color: 'var(--text-secondary)' }}>
                 Join thousands of traders who are already earning with copy trading

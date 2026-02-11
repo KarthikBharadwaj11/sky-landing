@@ -12,9 +12,11 @@ import {
   ChevronDown,
   DollarSign,
 } from 'lucide-react';
+import { useScrollReveal } from '@/hooks/useScrollAnimations';
 
 export default function LandingPage() {
   const [openFaq, setOpenFaq] = useState<number | null>(null);
+  useScrollReveal();
 
   const toggleFaq = (index: number) => {
     setOpenFaq(openFaq === index ? null : index);
@@ -82,6 +84,10 @@ export default function LandingPage() {
 
   return (
     <div className="min-h-screen trading-background">
+      {/* Floating Particles */}
+      <div className="floating-particles">
+        <span /><span /><span /><span /><span /><span />
+      </div>
 
       {/* Hero Section */}
       <section className="relative overflow-hidden">
@@ -97,6 +103,7 @@ export default function LandingPage() {
                 height={80}
                 className="inline-block -ml-10"
                 priority
+                unoptimized
               />
             </h1>
 
@@ -105,16 +112,16 @@ export default function LandingPage() {
             </p>
 
             {/* Stats */}
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-16">
-              <div className="glass-morphism p-6 rounded-xl">
+            <div data-stagger className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-16">
+              <div data-animate="fade-up" className="glass-morphism p-6 rounded-xl">
                 <div className="text-4xl font-bold text-gradient mb-2">X</div>
                 <div style={{ color: 'var(--text-secondary)' }}>Active Traders</div>
               </div>
-              <div className="glass-morphism p-6 rounded-xl">
+              <div data-animate="fade-up" className="glass-morphism p-6 rounded-xl">
                 <div className="text-4xl font-bold text-gradient mb-2">X</div>
                 <div style={{ color: 'var(--text-secondary)' }}>Volume Traded</div>
               </div>
-              <div className="glass-morphism p-6 rounded-xl">
+              <div data-animate="fade-up" className="glass-morphism p-6 rounded-xl">
                 <div className="text-4xl font-bold text-gradient mb-2">X</div>
                 <div style={{ color: 'var(--text-secondary)' }}>Uptime</div>
               </div>
@@ -128,15 +135,15 @@ export default function LandingPage() {
         <div className="container mx-auto px-4">
           <div className="max-w-6xl mx-auto">
             <div className="text-center mb-16">
-              <h2 className="text-5xl font-bold text-gradient mb-6">Powerful Trading Features</h2>
-              <p className="text-xl" style={{ color: 'var(--text-secondary)' }}>
+              <h2 data-animate="fade-up" className="text-5xl font-bold text-gradient mb-6">Powerful Trading Features</h2>
+              <p data-animate="fade-up" className="text-xl" style={{ color: 'var(--text-secondary)' }}>
                 Everything you need to succeed in the markets, all in one platform
               </p>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div data-stagger className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
               {features.map((feature, index) => (
-                <div key={index} className="card hover:scale-105 transition-all duration-300">
+                <div key={index} data-animate="fade-up" className="card hover:scale-105 transition-all duration-300">
                   <div className="card-body text-center">
                     <div className="flex justify-center mb-4" style={{ color: 'var(--text-accent)' }}>
                       {feature.icon}
@@ -159,7 +166,7 @@ export default function LandingPage() {
       <section id="how-it-works" className="py-20">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto">
-            <div className="card">
+            <div data-animate="scale-in" className="card">
               <div className="card-body p-8">
                 <div className="text-center mb-8">
                   <h2 className="text-3xl font-bold mb-3" style={{ color: 'var(--text-primary)' }}>How Sky Works</h2>
@@ -222,15 +229,15 @@ export default function LandingPage() {
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto">
             <div className="text-center mb-16">
-              <h2 className="text-5xl font-bold text-gradient mb-6">Frequently Asked Questions</h2>
-              <p className="text-xl" style={{ color: 'var(--text-secondary)' }}>
+              <h2 data-animate="fade-up" className="text-5xl font-bold text-gradient mb-6">Frequently Asked Questions</h2>
+              <p data-animate="fade-up" className="text-xl" style={{ color: 'var(--text-secondary)' }}>
                 Everything you need to know about trading with Sky
               </p>
             </div>
 
             <div className="space-y-4">
               {faqs.map((faq, index) => (
-                <div key={index} className="glass-morphism rounded-xl overflow-hidden">
+                <div key={index} data-animate="fade-up" className="glass-morphism rounded-xl overflow-hidden">
                   <button
                     onClick={() => toggleFaq(index)}
                     className="w-full p-6 text-left flex items-center justify-between hover:bg-white/5 transition-colors"
@@ -239,15 +246,17 @@ export default function LandingPage() {
                       {faq.question}
                     </span>
                     <ChevronDown
-                      className={`w-5 h-5 transition-transform ${openFaq === index ? 'rotate-180' : ''}`}
+                      className={`w-5 h-5 transition-transform duration-300 ${openFaq === index ? 'rotate-180' : ''}`}
                       style={{ color: 'var(--text-accent)' }}
                     />
                   </button>
-                  {openFaq === index && (
-                    <div className="px-6 pb-6" style={{ color: 'var(--text-secondary)' }}>
-                      {faq.answer}
+                  <div className={`faq-answer ${openFaq === index ? 'open' : ''}`}>
+                    <div>
+                      <div className="px-6 pb-6" style={{ color: 'var(--text-secondary)' }}>
+                        {faq.answer}
+                      </div>
                     </div>
-                  )}
+                  </div>
                 </div>
               ))}
             </div>
@@ -259,7 +268,7 @@ export default function LandingPage() {
       <section id="about" className="py-20">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center">
-            <div className="card">
+            <div data-animate="scale-in" className="card">
               <div className="card-body p-12">
                 <h2 className="text-5xl font-bold text-gradient mb-6">
                   About Sky
@@ -301,7 +310,7 @@ export default function LandingPage() {
                   Empowering traders with intelligent tools, real-time data, and a supportive community.
                 </p>
                 <div className="text-sm" style={{ color: 'var(--text-muted)' }}>
-                  © 2024 Sky Trading Platform. All rights reserved.
+                  © 2025 Sky Trading Platform. All rights reserved.
                 </div>
               </div>
 

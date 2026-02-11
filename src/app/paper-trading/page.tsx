@@ -9,8 +9,11 @@ import {
   Shield,
   Zap,
 } from 'lucide-react';
+import { useScrollReveal } from '@/hooks/useScrollAnimations';
 
 export default function PaperTradingPage() {
+  useScrollReveal();
+
   const features = [
     {
       icon: <BookOpen className="w-10 h-10" />,
@@ -54,6 +57,11 @@ export default function PaperTradingPage() {
 
   return (
     <div className="min-h-screen trading-background">
+      {/* Floating Particles */}
+      <div className="floating-particles">
+        <span /><span /><span /><span /><span /><span />
+      </div>
+
       <section className="pt-48 pb-16">
         <div className="container mx-auto px-4">
           <div className="max-w-6xl mx-auto text-center mb-16">
@@ -68,20 +76,20 @@ export default function PaperTradingPage() {
             </p>
           </div>
 
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-16 max-w-5xl mx-auto">
-            <div className="card p-6 text-center hover:scale-105 transition-all duration-300">
+          <div data-stagger className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-16 max-w-5xl mx-auto">
+            <div data-animate="fade-up" className="card p-6 text-center hover:scale-105 transition-all duration-300">
               <div className="text-3xl font-bold mb-2 text-gradient">$100K</div>
               <div className="text-sm font-medium" style={{ color: 'var(--text-secondary)' }}>Starting Balance</div>
             </div>
-            <div className="card p-6 text-center hover:scale-105 transition-all duration-300">
+            <div data-animate="fade-up" className="card p-6 text-center hover:scale-105 transition-all duration-300">
               <div className="text-3xl font-bold mb-2 text-gradient">Live</div>
               <div className="text-sm font-medium" style={{ color: 'var(--text-secondary)' }}>Market Prices</div>
             </div>
-            <div className="card p-6 text-center hover:scale-105 transition-all duration-300">
+            <div data-animate="fade-up" className="card p-6 text-center hover:scale-105 transition-all duration-300">
               <div className="text-3xl font-bold mb-2 text-gradient">$0</div>
               <div className="text-sm font-medium" style={{ color: 'var(--text-secondary)' }}>Real Money Risk</div>
             </div>
-            <div className="card p-6 text-center hover:scale-105 transition-all duration-300">
+            <div data-animate="fade-up" className="card p-6 text-center hover:scale-105 transition-all duration-300">
               <div className="text-3xl font-bold mb-2 text-gradient">Full</div>
               <div className="text-sm font-medium" style={{ color: 'var(--text-secondary)' }}>Trading Tools</div>
             </div>
@@ -89,15 +97,15 @@ export default function PaperTradingPage() {
 
           {/* What is Paper Trading */}
           <div className="max-w-4xl mx-auto mb-16">
-            <div className="card p-8">
+            <div data-animate="scale-in" className="card p-8">
               <h2 className="text-3xl font-bold mb-4 text-center text-gradient">What is Paper Trading?</h2>
               <p className="text-lg text-center mb-8" style={{ color: 'var(--text-secondary)' }}>
                 Paper trading is a risk-free way to practice trading with virtual money. Test your strategies, learn the market, and build confidence before trading with real money.
               </p>
 
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+              <div data-stagger className="grid grid-cols-1 md:grid-cols-3 gap-6">
                 {features.map((feature, index) => (
-                  <div key={index} className="glass-morphism p-6 rounded-xl hover:scale-105 transition-all duration-300">
+                  <div key={index} data-animate="fade-up" className="glass-morphism p-6 rounded-xl hover:scale-105 transition-all duration-300">
                     <div className="mb-4" style={{ color: 'var(--text-accent)' }}>
                       {feature.icon}
                     </div>
@@ -112,15 +120,15 @@ export default function PaperTradingPage() {
           {/* Benefits */}
           <div className="max-w-6xl mx-auto mb-16">
             <div className="text-center mb-12">
-              <h2 className="text-4xl font-bold text-gradient mb-4">Why Paper Trade?</h2>
-              <p className="text-lg" style={{ color: 'var(--text-secondary)' }}>
+              <h2 data-animate="fade-up" className="text-4xl font-bold text-gradient mb-4">Why Paper Trade?</h2>
+              <p data-animate="fade-up" className="text-lg" style={{ color: 'var(--text-secondary)' }}>
                 The perfect way to start your trading journey
               </p>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            <div data-stagger className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
               {benefits.map((benefit, index) => (
-                <div key={index} className="card hover:scale-105 transition-all duration-300">
+                <div key={index} data-animate="fade-up" className="card hover:scale-105 transition-all duration-300">
                   <div className="card-body text-center p-6">
                     <div className="flex justify-center mb-4" style={{ color: 'var(--text-accent)' }}>
                       {benefit.icon}
@@ -139,7 +147,7 @@ export default function PaperTradingPage() {
 
           {/* How It Works */}
           <div className="max-w-4xl mx-auto mb-16">
-            <div className="card p-8">
+            <div data-animate="scale-in" className="card p-8">
               <h2 className="text-3xl font-bold mb-4 text-center" style={{ color: 'var(--text-primary)' }}>How Paper Trading Works</h2>
               <p className="text-lg text-center mb-8" style={{ color: 'var(--text-secondary)' }}>
                 Start practicing in three simple steps
@@ -181,7 +189,7 @@ export default function PaperTradingPage() {
 
           {/* Call-to-action */}
           <div className="text-center max-w-4xl mx-auto">
-            <div className="card p-8">
+            <div data-animate="scale-in" className="card p-8">
               <h2 className="text-3xl font-bold mb-4 text-gradient">Ready to Start Paper Trading?</h2>
               <p className="text-lg mb-8" style={{ color: 'var(--text-secondary)' }}>
                 Get $100,000 in virtual money to practice trading risk-free
