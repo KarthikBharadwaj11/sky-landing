@@ -11,6 +11,9 @@ import {
   Zap,
   ChevronDown,
   DollarSign,
+  Rocket,
+  Wallet,
+  LineChart,
 } from 'lucide-react';
 import { useScrollReveal } from '@/hooks/useScrollAnimations';
 
@@ -31,12 +34,12 @@ export default function LandingPage() {
     {
       icon: <Zap className="w-8 h-8" />,
       title: "AI-Powered Trading Signals",
-      description: "Smart recommendations and insights powered by advanced machine learning algorithms"
+      description: "A unified ecosystem for the modern trader: AI insights, live data, and shared expertise."
     },
     {
       icon: <Users className="w-8 h-8" />,
       title: "Copy Trading",
-      description: "Follow top traders, copy their strategies, and learn from the best in the community"
+      description: "Mimic the experts. Master the markets by following the community's best."
     },
     {
       icon: <BarChart3 className="w-8 h-8" />,
@@ -46,12 +49,12 @@ export default function LandingPage() {
     {
       icon: <Smartphone className="w-8 h-8" />,
       title: "Mobile Trading",
-      description: "Trade anywhere, anytime with our responsive platform optimized for all devices"
+      description: "Total market access, 24/7. Built for your phone, tablet, or desktop."
     },
     {
       icon: <DollarSign className="w-8 h-8" />,
       title: "Zero Commission",
-      description: "Commission-free stock trading with transparent pricing and no hidden fees"
+      description: "No commissions. No hidden fees. Just total transparency."
     }
   ];
 
@@ -108,7 +111,7 @@ export default function LandingPage() {
             </h1>
 
             <p className="text-2xl md:text-3xl mb-12 leading-relaxed" style={{ color: 'var(--text-secondary)' }}>
-              Your gateway to intelligent trading with AI-powered insights, real-time data, and a thriving community
+              Never trade alone. Leverage experts, real-time data and AI to stay ahead.
             </p>
 
             {/* Stats */}
@@ -137,7 +140,7 @@ export default function LandingPage() {
             <div className="text-center mb-16">
               <h2 data-animate="fade-up" className="text-5xl font-bold text-gradient mb-6">Powerful Trading Features</h2>
               <p data-animate="fade-up" className="text-xl" style={{ color: 'var(--text-secondary)' }}>
-                Everything you need to succeed in the markets, all in one platform
+                Everything you need to succeed in the markets, all on one platform
               </p>
             </div>
 
@@ -179,13 +182,13 @@ export default function LandingPage() {
                   <div className="flex gap-4">
                     <div className="flex-shrink-0">
                       <div className="w-8 h-8 rounded-lg bg-blue-600 flex items-center justify-center">
-                        <span className="text-white font-bold">1</span>
+                        <Rocket className="w-4 h-4 text-white" />
                       </div>
                     </div>
                     <div>
-                      <h3 className="text-lg font-bold mb-2" style={{ color: 'var(--text-primary)' }}>Sign Up</h3>
+                      <h3 className="text-lg font-bold mb-2" style={{ color: 'var(--text-primary)' }}>Claim Your Seat</h3>
                       <p style={{ color: 'var(--text-secondary)' }}>
-                        Create your account in just 2 minutes with our streamlined registration process
+                        Create your account with our effortless registration process.
                       </p>
                     </div>
                   </div>
@@ -193,13 +196,13 @@ export default function LandingPage() {
                   <div className="flex gap-4">
                     <div className="flex-shrink-0">
                       <div className="w-8 h-8 rounded-lg bg-purple-600 flex items-center justify-center">
-                        <span className="text-white font-bold">2</span>
+                        <Wallet className="w-4 h-4 text-white" />
                       </div>
                     </div>
                     <div>
-                      <h3 className="text-lg font-bold mb-2" style={{ color: 'var(--text-primary)' }}>Fund Account</h3>
+                      <h3 className="text-lg font-bold mb-2" style={{ color: 'var(--text-primary)' }}>Fund Your Future</h3>
                       <p style={{ color: 'var(--text-secondary)' }}>
-                        Deposit funds securely and start with any amount - no minimum required
+                        Deposit securely and start on your terms. No minimums, no barriers, just total flexibility.
                       </p>
                     </div>
                   </div>
@@ -207,13 +210,13 @@ export default function LandingPage() {
                   <div className="flex gap-4">
                     <div className="flex-shrink-0">
                       <div className="w-8 h-8 rounded-lg bg-indigo-600 flex items-center justify-center">
-                        <span className="text-white font-bold">3</span>
+                        <LineChart className="w-4 h-4 text-white" />
                       </div>
                     </div>
                     <div>
-                      <h3 className="text-lg font-bold mb-2" style={{ color: 'var(--text-primary)' }}>Start Trading</h3>
+                      <h3 className="text-lg font-bold mb-2" style={{ color: 'var(--text-primary)' }}>Trade with Intelligence</h3>
                       <p style={{ color: 'var(--text-secondary)' }}>
-                        Access powerful tools, AI insights, and start your trading journey
+                        Harness the power of AI and a global community to master the markets.
                       </p>
                     </div>
                   </div>
@@ -274,23 +277,8 @@ export default function LandingPage() {
                   About Sky
                 </h2>
                 <p className="text-xl mb-8" style={{ color: 'var(--text-secondary)' }}>
-                  Sky is a modern trading platform designed to empower traders of all levels with cutting-edge technology,
-                  AI-powered insights, and a supportive community. Our mission is to make intelligent trading accessible to everyone.
+                  Sky empowers the modern trader by fusing cutting-edge AI insights with a collaborative community. By removing the barriers to sophisticated trading, we provide every trader—at every level—with the intelligence and tools they need to thrive.
                 </p>
-                <div className="flex flex-wrap justify-center gap-8 mt-8">
-                  <div className="flex items-center gap-2">
-                    <Shield className="w-6 h-6" style={{ color: 'var(--text-accent)' }} />
-                    <span style={{ color: 'var(--text-secondary)' }}>SIPC Insured</span>
-                  </div>
-                  <div className="flex items-center gap-2">
-                    <TrendingUp className="w-6 h-6" style={{ color: 'var(--text-accent)' }} />
-                    <span style={{ color: 'var(--text-secondary)' }}>SEC Registered</span>
-                  </div>
-                  <div className="flex items-center gap-2">
-                    <Users className="w-6 h-6" style={{ color: 'var(--text-accent)' }} />
-                    <span style={{ color: 'var(--text-secondary)' }}>FINRA Member</span>
-                  </div>
-                </div>
               </div>
             </div>
           </div>

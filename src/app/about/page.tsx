@@ -179,20 +179,6 @@ export default function AboutPage() {
                   Start your trading journey with the platform built by traders, for traders
                 </p>
 
-                <div className="flex flex-wrap justify-center gap-8">
-                  <div className="flex items-center gap-2">
-                    <Shield className="w-6 h-6" style={{ color: 'var(--text-accent)' }} />
-                    <span style={{ color: 'var(--text-secondary)' }}>SIPC Insured</span>
-                  </div>
-                  <div className="flex items-center gap-2">
-                    <TrendingUp className="w-6 h-6" style={{ color: 'var(--text-accent)' }} />
-                    <span style={{ color: 'var(--text-secondary)' }}>SEC Registered</span>
-                  </div>
-                  <div className="flex items-center gap-2">
-                    <Users className="w-6 h-6" style={{ color: 'var(--text-accent)' }} />
-                    <span style={{ color: 'var(--text-secondary)' }}>FINRA Member</span>
-                  </div>
-                </div>
               </div>
             </div>
           </div>
