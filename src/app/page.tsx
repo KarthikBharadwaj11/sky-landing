@@ -1,7 +1,7 @@
 'use client';
 
 import Image from 'next/image';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import {
   TrendingUp,
   Shield,
@@ -14,12 +14,42 @@ import {
   Rocket,
   Wallet,
   LineChart,
+  GraduationCap,
+  Newspaper,
+  Copy,
+  ScrollText,
 } from 'lucide-react';
 import { useScrollReveal } from '@/hooks/useScrollAnimations';
 
 export default function LandingPage() {
   const [openFaq, setOpenFaq] = useState<number | null>(null);
+  const [typedText, setTypedText] = useState('');
+  const [isDeleting, setIsDeleting] = useState(false);
+  const fullText = 'Coming Soon';
   useScrollReveal();
+
+  useEffect(() => {
+    let timeout: ReturnType<typeof setTimeout>;
+
+    if (!isDeleting && typedText === fullText) {
+      timeout = setTimeout(() => setIsDeleting(true), 2500);
+      return () => clearTimeout(timeout);
+    }
+
+    if (isDeleting && typedText === '') {
+      timeout = setTimeout(() => setIsDeleting(false), 600);
+      return () => clearTimeout(timeout);
+    }
+
+    timeout = setTimeout(() => {
+      setTypedText(isDeleting
+        ? fullText.slice(0, typedText.length - 1)
+        : fullText.slice(0, typedText.length + 1)
+      );
+    }, isDeleting ? 80 : 180);
+
+    return () => clearTimeout(timeout);
+  }, [typedText, isDeleting]);
 
   const toggleFaq = (index: number) => {
     setOpenFaq(openFaq === index ? null : index);
@@ -37,7 +67,7 @@ export default function LandingPage() {
       description: "A unified ecosystem for the modern trader: AI insights, live data, and shared expertise."
     },
     {
-      icon: <Users className="w-8 h-8" />,
+      icon: <Copy className="w-8 h-8" />,
       title: "Copy Trading",
       description: "Mimic the experts. Master the markets by following the community's best."
     },
@@ -50,6 +80,21 @@ export default function LandingPage() {
       icon: <Smartphone className="w-8 h-8" />,
       title: "Mobile Trading",
       description: "Total market access, 24/7. Built for your phone, tablet, or desktop."
+    },
+    {
+      icon: <ScrollText className="w-8 h-8" />,
+      title: "Paper Trading",
+      description: "Practice with $100,000 in virtual money using live market data. Build confidence and refine your strategy before going live."
+    },
+    {
+      icon: <GraduationCap className="w-8 h-8" />,
+      title: "Learn",
+      description: "From Investing 101 to advanced strategies — video lessons, articles, and guides to grow your knowledge at your own pace."
+    },
+    {
+      icon: <Newspaper className="w-8 h-8" />,
+      title: "News & Sentiment",
+      description: "Stay ahead with real-time financial news and AI-driven market sentiment analysis — know the mood of the market before you trade."
     },
     {
       icon: <DollarSign className="w-8 h-8" />,
@@ -94,53 +139,42 @@ export default function LandingPage() {
 
       {/* Hero Section */}
       <section className="relative overflow-hidden">
-        <div className="container mx-auto px-4 pt-48 pb-32">
+        <div className="container mx-auto px-4 pt-36 pb-8">
           <div className="max-w-6xl mx-auto text-center">
+
+            <p className={`text-5xl font-bold mb-10 text-gradient ${typedText === fullText && !isDeleting ? 'coming-soon-glow' : ''}`}>
+              {typedText}<span className="typing-cursor">|</span>
+            </p>
 
             <h1 className="text-6xl md:text-8xl font-bold gradient-shift leading-tight mb-8 flex items-center justify-center gap-1 flex-wrap">
               Trade Smarter with
               <Image
                 src="/logo.png"
                 alt="Sky Logo"
-                width={200}
-                height={80}
-                className="inline-block -ml-10"
+                width={150}
+                height={60}
+                className="inline-block"
                 priority
                 unoptimized
               />
             </h1>
 
-            <p className="text-2xl md:text-3xl mb-12 leading-relaxed" style={{ color: 'var(--text-secondary)' }}>
+            <p className="text-2xl md:text-3xl mb-6 leading-relaxed text-gradient">
               Never trade alone. Leverage experts, real-time data and AI to stay ahead.
             </p>
 
-            {/* Stats */}
-            <div data-stagger className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-16">
-              <div data-animate="fade-up" className="glass-morphism p-6 rounded-xl">
-                <div className="text-4xl font-bold text-gradient mb-2">X</div>
-                <div style={{ color: 'var(--text-secondary)' }}>Active Traders</div>
-              </div>
-              <div data-animate="fade-up" className="glass-morphism p-6 rounded-xl">
-                <div className="text-4xl font-bold text-gradient mb-2">X</div>
-                <div style={{ color: 'var(--text-secondary)' }}>Volume Traded</div>
-              </div>
-              <div data-animate="fade-up" className="glass-morphism p-6 rounded-xl">
-                <div className="text-4xl font-bold text-gradient mb-2">X</div>
-                <div style={{ color: 'var(--text-secondary)' }}>Uptime</div>
-              </div>
-            </div>
           </div>
         </div>
       </section>
 
       {/* Features Section */}
-      <section id="features" className="py-20">
+      <section id="features" className="pt-8 pb-20">
         <div className="container mx-auto px-4">
           <div className="max-w-6xl mx-auto">
             <div className="text-center mb-16">
-              <h2 data-animate="fade-up" className="text-5xl font-bold text-gradient mb-6">Powerful Trading Features</h2>
+              <h2 data-animate="fade-up" className="text-5xl font-bold text-gradient mb-6">What's Launching on Sky</h2>
               <p data-animate="fade-up" className="text-xl" style={{ color: 'var(--text-secondary)' }}>
-                Everything you need to succeed in the markets, all on one platform
+                Here's a look at everything we're bringing to the platform
               </p>
             </div>
 
@@ -238,50 +272,21 @@ export default function LandingPage() {
               </p>
             </div>
 
-            <div className="space-y-4">
-              {faqs.map((faq, index) => (
-                <div key={index} data-animate="fade-up" className="glass-morphism rounded-xl overflow-hidden">
-                  <button
-                    onClick={() => toggleFaq(index)}
-                    className="w-full p-6 text-left flex items-center justify-between hover:bg-white/5 transition-colors"
-                  >
-                    <span className="font-semibold text-lg" style={{ color: 'var(--text-primary)' }}>
-                      {faq.question}
-                    </span>
-                    <ChevronDown
-                      className={`w-5 h-5 transition-transform duration-300 ${openFaq === index ? 'rotate-180' : ''}`}
-                      style={{ color: 'var(--text-accent)' }}
-                    />
-                  </button>
-                  <div className={`faq-answer ${openFaq === index ? 'open' : ''}`}>
-                    <div>
-                      <div className="px-6 pb-6" style={{ color: 'var(--text-secondary)' }}>
-                        {faq.answer}
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              ))}
+            <div data-animate="scale-in" className="glass-morphism rounded-xl p-12 text-center">
+              <p className="text-2xl font-semibold text-gradient mb-2">Coming Soon</p>
+              <p style={{ color: 'var(--text-secondary)' }}>Our FAQ section is being put together. Check back after launch.</p>
             </div>
           </div>
         </div>
       </section>
 
-      {/* About Section */}
-      <section id="about" className="py-20">
-        <div className="container mx-auto px-4">
-          <div className="max-w-4xl mx-auto text-center">
-            <div data-animate="scale-in" className="card">
-              <div className="card-body p-12">
-                <h2 className="text-5xl font-bold text-gradient mb-6">
-                  About Sky
-                </h2>
-                <p className="text-xl mb-8" style={{ color: 'var(--text-secondary)' }}>
-                  Sky empowers the modern trader by fusing cutting-edge AI insights with a collaborative community. By removing the barriers to sophisticated trading, we provide every trader—at every level—with the intelligence and tools they need to thrive.
-                </p>
-              </div>
-            </div>
-          </div>
+
+      {/* Market Minds */}
+      <section className="py-10">
+        <div className="container mx-auto px-4 text-center">
+          <p className="text-lg font-semibold" style={{ color: 'var(--text-primary)' }}>
+            Sky is powered by <span className="text-gradient">Market Minds LLC</span>
+          </p>
         </div>
       </section>
 

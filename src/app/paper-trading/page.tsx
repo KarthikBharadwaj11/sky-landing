@@ -62,12 +62,9 @@ export default function PaperTradingPage() {
         <span /><span /><span /><span /><span /><span />
       </div>
 
-      <section className="pt-48 pb-16">
+      <section className="pt-48 pb-8">
         <div className="container mx-auto px-4">
-          <div className="max-w-6xl mx-auto text-center mb-16">
-            <div className="inline-block px-4 py-2 rounded-full mb-6 glass-morphism">
-              <span className="text-sm font-bold" style={{ color: 'var(--text-accent)' }}>PRACTICE MODE</span>
-            </div>
+          <div className="max-w-6xl mx-auto text-center mb-8">
             <h1 className="text-5xl md:text-7xl font-bold gradient-shift leading-tight mb-6">
               Paper Trading
             </h1>
@@ -76,7 +73,7 @@ export default function PaperTradingPage() {
             </p>
           </div>
 
-          <div data-stagger className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-16 max-w-5xl mx-auto">
+          <div data-stagger className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-16 max-w-4xl mx-auto">
             <div data-animate="fade-up" className="card p-6 text-center hover:scale-105 transition-all duration-300">
               <div className="text-3xl font-bold mb-2 text-gradient">$100K</div>
               <div className="text-sm font-medium" style={{ color: 'var(--text-secondary)' }}>Starting Balance</div>

@@ -55,7 +55,7 @@ export default function AboutPage() {
       </div>
 
       {/* Hero Section */}
-      <section className="pt-48 pb-16">
+      <section className="pt-48 pb-4">
         <div className="container mx-auto px-4">
           <div className="max-w-6xl mx-auto text-center">
             <h1 className="text-5xl md:text-7xl font-bold gradient-shift leading-tight mb-6">
@@ -63,18 +63,9 @@ export default function AboutPage() {
             </h1>
 
             <p className="text-xl md:text-2xl mb-8" style={{ color: 'var(--text-secondary)' }}>
-              We're on a mission to democratize trading and make financial markets accessible to everyone,
-              backed by cutting-edge technology and unwavering commitment to our users.
+              Sky empowers the modern trader by fusing cutting-edge AI insights with a collaborative community. By removing the barriers to sophisticated trading, we provide every trader—at every level—with the intelligence and tools they need to thrive.
             </p>
 
-            <div data-stagger className="grid grid-cols-2 md:grid-cols-4 gap-6">
-              {stats.map((stat, index) => (
-                <div key={index} data-animate="fade-up" className="glass-morphism p-6 rounded-xl text-center hover:scale-105 transition-all duration-300">
-                  <div className="text-3xl font-bold text-gradient mb-1">{stat.value}</div>
-                  <div className="text-sm" style={{ color: 'var(--text-secondary)' }}>{stat.label}</div>
-                </div>
-              ))}
-            </div>
           </div>
         </div>
       </section>
@@ -161,6 +152,52 @@ export default function AboutPage() {
                   </div>
                 </div>
               ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Team Section */}
+      <section className="py-16">
+        <div className="container mx-auto px-4">
+          <div className="max-w-6xl mx-auto">
+            <div className="text-center mb-12">
+              <h2 data-animate="fade-up" className="text-4xl font-bold text-gradient mb-4">Our Team</h2>
+              <p data-animate="fade-up" className="text-lg" style={{ color: 'var(--text-secondary)' }}>
+                The people building Sky
+              </p>
+            </div>
+
+            <div data-stagger className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl mx-auto">
+              <div data-animate="fade-up" className="card hover:scale-105 transition-all duration-300">
+                <div className="card-body text-center p-8">
+                  <div className="w-16 h-16 rounded-full mx-auto mb-4 flex items-center justify-center" style={{ background: 'var(--gradient-primary)' }}>
+                    <span className="text-xl font-bold text-white">SS</span>
+                  </div>
+                  <h3 className="text-xl font-bold mb-1" style={{ color: 'var(--text-primary)' }}>Sushma Srinivas</h3>
+                  <p className="text-sm font-medium" style={{ color: 'var(--text-accent)' }}>Founder & CEO</p>
+                </div>
+              </div>
+
+              <div data-animate="fade-up" className="card hover:scale-105 transition-all duration-300">
+                <div className="card-body text-center p-8">
+                  <div className="w-16 h-16 rounded-full mx-auto mb-4 flex items-center justify-center" style={{ background: 'var(--gradient-primary)' }}>
+                    <span className="text-xl font-bold text-white">PN</span>
+                  </div>
+                  <h3 className="text-xl font-bold mb-1" style={{ color: 'var(--text-primary)' }}>Prakash Nair</h3>
+                  <p className="text-sm font-medium" style={{ color: 'var(--text-accent)' }}>CTO</p>
+                </div>
+              </div>
+
+              <div data-animate="fade-up" className="card hover:scale-105 transition-all duration-300">
+                <div className="card-body text-center p-8">
+                  <div className="w-16 h-16 rounded-full mx-auto mb-4 flex items-center justify-center" style={{ background: 'var(--gradient-primary)' }}>
+                    <span className="text-xl font-bold text-white">KS</span>
+                  </div>
+                  <h3 className="text-xl font-bold mb-1" style={{ color: 'var(--text-primary)' }}>Karthik Surya</h3>
+                  <p className="text-sm font-medium" style={{ color: 'var(--text-accent)' }}>IT Manager</p>
+                </div>
+              </div>
             </div>
           </div>
         </div>

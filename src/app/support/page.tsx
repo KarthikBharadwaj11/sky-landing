@@ -49,13 +49,6 @@ export default function SupportPage() {
       availability: "Mon-Fri 9AM-6PM EST",
       action: "Call Now"
     },
-    {
-      icon: <Video className="w-8 h-8" />,
-      title: "Video Call",
-      description: "Screen sharing for complex technical issues",
-      availability: "By Appointment",
-      action: "Schedule"
-    }
   ];
 
   const categories = [
@@ -177,7 +170,7 @@ export default function SupportPage() {
               </p>
             </div>
 
-            <div data-stagger className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            <div data-stagger className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl mx-auto">
               {supportOptions.map((option, index) => (
                 <div
                   key={index}
@@ -228,66 +221,9 @@ export default function SupportPage() {
               </p>
             </div>
 
-            {/* Category Filter */}
-            <div data-animate="fade-up" className="flex flex-wrap justify-center gap-3 mb-8">
-              {categories.map((category) => (
-                <button
-                  key={category.id}
-                  onClick={() => setSelectedCategory(category.id)}
-                  className={`flex items-center gap-2 px-4 py-2 rounded-lg font-medium transition-all duration-300 ${
-                    selectedCategory === category.id
-                      ? 'btn-primary'
-                      : 'glass-morphism hover:bg-white/5'
-                  }`}
-                >
-                  {category.icon}
-                  {category.name}
-                </button>
-              ))}
-            </div>
-
-            {/* FAQ Items */}
-            <div className="space-y-4 max-w-4xl mx-auto">
-              {searchedFaqs.map((faq, index) => (
-                <div key={index} data-animate="fade-up" className="glass-morphism rounded-xl overflow-hidden">
-                  <button
-                    onClick={() => toggleFaq(index)}
-                    className="w-full p-6 text-left flex items-center justify-between hover:bg-white/5 transition-colors"
-                  >
-                    <span className="font-semibold text-lg" style={{ color: 'var(--text-primary)' }}>
-                      {faq.question}
-                    </span>
-                    <ChevronDown
-                      className={`w-5 h-5 transition-transform duration-300 ${openFaq === index ? 'rotate-180' : ''}`}
-                      style={{ color: 'var(--text-accent)' }}
-                    />
-                  </button>
-                  <div className={`faq-answer ${openFaq === index ? 'open' : ''}`}>
-                    <div>
-                      <div className="px-6 pb-6" style={{ color: 'var(--text-secondary)' }}>
-                        <div className="pt-4 border-t border-white/10">
-                          {faq.answer}
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              ))}
-
-              {searchedFaqs.length === 0 && (
-                <div className="text-center py-12">
-                  <AlertCircle className="w-12 h-12 mx-auto mb-4" style={{ color: 'var(--text-muted)' }} />
-                  <p className="text-lg" style={{ color: 'var(--text-secondary)' }}>
-                    No articles found matching your search.
-                  </p>
-                  <button
-                    onClick={() => setSearchQuery('')}
-                    className="btn-secondary mt-4"
-                  >
-                    Clear Search
-                  </button>
-                </div>
-              )}
+            <div data-animate="scale-in" className="glass-morphism rounded-xl p-12 text-center max-w-4xl mx-auto">
+              <p className="text-2xl font-semibold text-gradient mb-2">Coming Soon</p>
+              <p style={{ color: 'var(--text-secondary)' }}>Our FAQ section is being put together. Check back after launch.</p>
             </div>
           </div>
         </div>

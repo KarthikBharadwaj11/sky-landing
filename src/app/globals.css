@@ -176,12 +176,11 @@ body {
 .nav-link {
   text-decoration: none;
   font-weight: 500;
-  padding: 8px 16px;
+  padding: 6px 12px;
   border-radius: 10px;
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   position: relative;
   overflow: hidden;
-  backdrop-filter: blur(10px);
   white-space: nowrap;
   font-size: 14px;
   border: 1px solid transparent;
@@ -208,17 +207,15 @@ body {
 
 .nav-link:hover {
   color: var(--text-primary);
-  background: color-mix(in srgb, var(--glass-bg) 80%, var(--primary-blue) 20%);
-  transform: translateY(-1px) scale(1.02);
-  box-shadow: 0 4px 12px color-mix(in srgb, var(--primary-blue) 25%, transparent);
-  border: 1px solid color-mix(in srgb, var(--primary-blue) 30%, transparent);
+  background: transparent;
+  transform: translateY(-1px);
+  border: 1px solid transparent;
 }
 
 .nav-link-active {
   color: var(--text-primary);
-  background: color-mix(in srgb, var(--glass-bg) 70%, var(--primary-blue) 30%);
-  border: 1px solid color-mix(in srgb, var(--primary-blue) 40%, transparent);
-  box-shadow: 0 0 12px color-mix(in srgb, var(--primary-blue) 20%, transparent);
+  background: transparent;
+  border: 1px solid transparent;
 }
 
 .nav-link-active::before {
@@ -516,20 +513,24 @@ h3 {
 }
 
 /* ===== Navbar Scroll State ===== */
+.navbar-gradient-border {
+  padding: 1px;
+  background: linear-gradient(135deg, #3b82f6, #8b5cf6, #a855f7);
+  background-size: 200% 200%;
+  animation: gradient-shift 3s ease infinite;
+  box-shadow: 0 0 10px color-mix(in srgb, var(--primary-blue) 10%, transparent);
+}
+
 .navbar-glass {
   background: var(--glass-bg);
   backdrop-filter: blur(20px);
-  border: 1px solid var(--glass-border-color);
+  border: none;
   transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .navbar-glass.scrolled {
-  background: rgba(15, 23, 42, 0.95);
+  background: rgba(15, 23, 42, 0.97);
   backdrop-filter: blur(30px);
-  box-shadow:
-    0 8px 32px rgba(0, 0, 0, 0.4),
-    0 0 20px color-mix(in srgb, var(--primary-blue) 10%, transparent);
-  border-color: rgba(148, 163, 184, 0.15);
 }
 
 /* ===== Text Shimmer on Gradient Headings ===== */
@@ -589,6 +590,34 @@ h1 img,
   color: var(--text-primary);
   border-color: transparent;
   box-shadow: 0 0 20px color-mix(in srgb, var(--primary-blue) 30%, transparent);
+}
+
+/* ===== Coming Soon Glow Pulse ===== */
+.coming-soon-glow {
+  animation: coming-soon-pulse 1.8s ease-in-out infinite;
+}
+
+@keyframes coming-soon-pulse {
+  0%, 100% {
+    filter: drop-shadow(0 0 6px rgba(59, 130, 246, 0.4)) brightness(1);
+  }
+  50% {
+    filter: drop-shadow(0 0 24px rgba(139, 92, 246, 0.9)) brightness(1.25);
+  }
+}
+
+/* ===== Typing Cursor ===== */
+.typing-cursor {
+  display: inline-block;
+  margin-left: 2px;
+  animation: blink 0.8s step-end infinite;
+  color: var(--text-accent);
+  -webkit-text-fill-color: var(--text-accent);
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
 }
 
 /* ===== Reduced Motion ===== */

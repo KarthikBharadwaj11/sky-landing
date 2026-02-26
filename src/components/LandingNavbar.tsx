@@ -20,28 +20,29 @@ export default function LandingNavbar() {
   ];
 
   return (
-    <div className="fixed top-6 left-1/2 transform -translate-x-1/2 z-50 w-full max-w-6xl px-4">
-      <nav className={`navbar-glass rounded-2xl shadow-2xl ${isScrolled ? 'scrolled' : ''}`}>
-        <div className="px-6 py-3">
-          <div className="flex justify-between items-center gap-4">
+    <div className="fixed top-8 left-1/2 transform -translate-x-1/2 z-50 px-4 w-full max-w-3xl">
+      <div className="navbar-gradient-border rounded-2xl">
+      <nav className={`navbar-glass rounded-2xl ${isScrolled ? 'scrolled' : ''}`}>
+        <div className="px-4 py-2">
+          <div className="flex items-center gap-3">
             {/* Logo */}
-            <Link
-              href="/"
-              className="hover:scale-105 transition-all duration-300"
-            >
+            <Link href="/" className="hover:scale-105 transition-all duration-300 flex-shrink-0">
               <Image
                 src="/logo.png"
                 alt="Sky Logo"
-                width={100}
-                height={35}
+                width={70}
+                height={25}
                 className="object-contain"
                 priority
                 unoptimized
               />
             </Link>
 
+            {/* Divider */}
+            <div className="w-px h-5 bg-white/20 hidden md:block" />
+
             {/* Desktop Navigation */}
-            <div className="hidden md:flex items-center space-x-6">
+            <div className="hidden md:flex flex-1 items-center justify-end space-x-1">
               {navLinks.map((link) => (
                 <Link
                   key={link.href}
@@ -89,6 +90,7 @@ export default function LandingNavbar() {
           </div>
         </div>
       </nav>
+      </div>
     </div>
   );
 }

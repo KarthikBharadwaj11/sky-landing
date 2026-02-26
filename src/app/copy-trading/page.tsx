@@ -66,24 +66,6 @@ export default function CopyTradingPage() {
             </p>
           </div>
 
-          <div data-stagger className="grid grid-cols-2 md:grid-cols-4 gap-8 mb-16 max-w-5xl mx-auto">
-            <div data-animate="fade-up" className="text-center">
-              <div className="text-4xl md:text-4xl font-black text-gradient mb-2">X</div>
-              <div className="text-sm font-medium" style={{ color: 'var(--text-tertiary)' }}>Active Traders</div>
-            </div>
-            <div data-animate="fade-up" className="text-center">
-              <div className="text-4xl md:text-4xl font-black text-gradient mb-2">X</div>
-              <div className="text-sm font-medium" style={{ color: 'var(--text-tertiary)' }}>Expert Traders</div>
-            </div>
-            <div data-animate="fade-up" className="text-center">
-              <div className="text-4xl md:text-4xl font-black text-gradient mb-2">X</div>
-              <div className="text-sm font-medium" style={{ color: 'var(--text-tertiary)' }}>Assets Under Management</div>
-            </div>
-            <div data-animate="fade-up" className="text-center">
-              <div className="text-4xl md:text-4xl font-black text-gradient mb-2">X</div>
-              <div className="text-sm font-medium" style={{ color: 'var(--text-tertiary)' }}>Positive Returns</div>
-            </div>
-          </div>
 
           {/* Features */}
           <div className="max-w-6xl mx-auto mb-16">
