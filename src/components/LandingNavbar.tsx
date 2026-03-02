@@ -38,9 +38,6 @@ export default function LandingNavbar() {
               />
             </Link>
 
-            {/* Divider */}
-            <div className="w-px h-5 bg-white/20 hidden md:block" />
-
             {/* Desktop Navigation */}
             <div className="hidden md:flex flex-1 items-center justify-end space-x-1">
               {navLinks.map((link) => (

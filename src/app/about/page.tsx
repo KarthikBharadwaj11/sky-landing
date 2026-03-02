@@ -114,9 +114,8 @@ export default function AboutPage() {
                     <h3 className="text-2xl font-bold text-gradient mb-2">Our Vision</h3>
                   </div>
                   <p className="text-lg text-center" style={{ color: 'var(--text-secondary)' }}>
-                    To become the world's most trusted and innovative trading platform,
-                    where millions of users achieve financial freedom through intelligent,
-                    accessible, and transparent trading tools.
+                    Empower our users to master their financial future through a transparent,
+                    world-class ecosystem of intelligent trading tools.
                   </p>
                 </div>
               </div>

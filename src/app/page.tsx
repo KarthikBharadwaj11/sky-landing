@@ -146,14 +146,14 @@ export default function LandingPage() {
               {typedText}<span className="typing-cursor">|</span>
             </p>
 
-            <h1 className="text-6xl md:text-8xl font-bold gradient-shift leading-tight mb-8 flex items-center justify-center gap-1 flex-wrap">
+            <h1 className="text-6xl md:text-8xl font-bold gradient-shift leading-tight mb-8 flex items-center justify-center gap-3 flex-wrap">
               Trade Smarter with
               <Image
                 src="/logo.png"
                 alt="Sky Logo"
-                width={150}
-                height={60}
-                className="inline-block"
+                width={110}
+                height={44}
+                className="inline-block translate-y-2"
                 priority
                 unoptimized
               />
@@ -273,8 +273,7 @@ export default function LandingPage() {
             </div>
 
             <div data-animate="scale-in" className="glass-morphism rounded-xl p-12 text-center">
-              <p className="text-2xl font-semibold text-gradient mb-2">Coming Soon</p>
-              <p style={{ color: 'var(--text-secondary)' }}>Our FAQ section is being put together. Check back after launch.</p>
+              <p className="text-2xl font-semibold text-gradient">FAQ coming at launch. Stay tuned.</p>
             </div>
           </div>
         </div>
