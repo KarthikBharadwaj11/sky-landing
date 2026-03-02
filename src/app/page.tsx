@@ -139,7 +139,7 @@ export default function LandingPage() {
 
       {/* Hero Section */}
       <section className="relative overflow-hidden">
-        <div className="container mx-auto px-4 pt-36 pb-8">
+        <div className="container mx-auto px-4 pt-36 pb-2">
           <div className="max-w-6xl mx-auto text-center">
 
             <p className={`text-5xl font-bold mb-10 text-gradient ${typedText === fullText && !isDeleting ? 'coming-soon-glow' : ''}`}>
@@ -168,7 +168,7 @@ export default function LandingPage() {
       </section>
 
       {/* Features Section */}
-      <section id="features" className="pt-8 pb-20">
+      <section id="features" className="pt-4 pb-20">
         <div className="container mx-auto px-4">
           <div className="max-w-6xl mx-auto">
             <div className="text-center mb-16">
